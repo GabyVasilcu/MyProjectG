@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Title of the document</title>
+    <style>
+        .container{
+            background: black;
+            width: 300px;
+            padding: 20px;
+        }
+        .container input[type="text"] {
+            border: none;
+            border-bottom: 3px solid rgb(139, 220, 235);
+            width: 100%;
+            padding: 10px;
+            padding-bottom: 12px;
+            margin-bottom: 10px;
+            background: black;
+            color: rgb(139, 220, 235);
+        }
+        .container textarea{
+            background: black;
+            border: none;
+            border-bottom: 3px solid rgb(139, 220, 235);
+            width: 100%;
+            padding: 10px;
+        }
+
+        .container input[type="button"]{
+            background: rgb(139, 220, 235);
+            color: white;
+            padding: 10px;
+            width: 310px;
+            margin-top: 5px;
+            border-color: rgb(139, 220, 235);
+        }
+
+        .container ::placeholder {
+            color: rgb(139, 220, 235);
+            margin-bottom: -10px;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <!-- <fieldset class="fieldset1"> -->
+        <div class="container">
+            <input type="text" placeholder="Name">
+            <input type="text" placeholder="Email address">
+            <input type="text" placeholder="Phone">
+            <input type="text" placeholder="Subject">
+            <textarea rows="4" type="text" placeholder="Message"></textarea>
+            <input type="button" value="SEND">
+        </div>
+        <!-- </fieldset> -->
+
+
+
+    </form>
+</body>
+
+</html>
