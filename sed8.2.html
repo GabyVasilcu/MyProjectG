@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sedinta 8</title>
+    <style>
+        body {
+            font-size: 0;
+        }
+
+        .container {
+            display: flex;
+            background: black;
+            width: 30%;
+            padding: 20px;
+        }
+
+        .left {
+            display: inline-block;
+            background: red;
+            height: 150px;
+            flex: 1;
+        }
+
+        .right {
+            display: flex;
+            /* display: inline-block; */
+            background: yellow;
+            height: 150px;
+            flex: 1;
+            margin-right: 5%;
+            flex-direction: column;
+        }
+
+        .inner-div {
+            height: 20px;
+            background: green;
+            margin-bottom: 5px;
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left"></div>
+        <div class="right">
+            <div class="inner-div"></div>
+            <div class="inner-div"></div>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sedinta8</title>
+    <script>
+        var a = 5;
+        console.log(a)
+    </script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-size: 0;
+        }
+
+        .top {
+            height: 100%;
+            background: red;
+        }
+
+        .top-left {
+            display: inline-block;
+            height: 150px;
+            background: yellow;
+            width: 23%;
+            margin-right: 2.66%;
+        }
+
+        .top-middle {
+            display: inline-block;
+            height: 150px;
+            background: yellow;
+            width: 23%;
+            margin-right: 2.66%;
+        }
+
+        .top-right {
+            display: inline-block;
+            height: 150px;
+            background: yellow;
+            width: 23%;
+            margin-right: 2.66%;
+        }
+
+        .top-right2 {
+            display: inline-block;
+            height: 150px;
+            background: yellow;
+            width: 23%;
+            /* margin-right: 2.66%; */
+        }
+
+        .middle {
+            height: 100px;
+            background: green;
+        }
+
+        .middle-div {
+            height: inherit;
+            background: black;
+        }
+
+        .bottom {
+            display: flex;
+            height: 100px;
+            background: blue;
+        }
+
+        .bottom-left {
+            flex: 1;
+            margin-right: 5px;
+            height: inherit;
+            background: orange;
+        }
+
+        .bottom-right {
+            flex: 1;
+            height: inherit;
+            background: red;
+        }
+
+        .bottom2 {
+            height: 100px;
+            background: blue;
+        }
+
+        .bottom2-left {
+            display: inline-block;
+            margin-right: 5px;
+            height: inherit;
+            background: orange;
+            width: calc(50% - 2.5px);
+        }
+
+        .bottom2-right {
+            display: inline-block;
+            height: inherit;
+            background: orange;
+            width: calc(50% - 2.5px);
+        }
+
+        @media only screen and (max-width: 1000px) {
+            .top-left {
+                background: green;
+                width: 45%;
+                margin-right: 10%;
+                margin-bottom: 10%;
+            }
+
+            .top-middle {
+                background: green;
+                width: 45%;
+                margin: 0;
+                margin-bottom: 10%;
+            }
+
+            .top-right {
+                background: green;
+                width: 45%;
+                margin-right: 10%;
+            }
+
+            .top-right2 {
+                background: green;
+                width: 45%;
+                margin: 0;
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            .top-left {
+                background: green;
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 10%;
+            }
+
+            .top-middle {
+                background: green;
+                width: 100%;
+                margin: 0;
+                margin-bottom: 10%;
+            }
+
+            .top-right {
+                background: green;
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 10%;
+            }
+
+            .top-right2 {
+                background: green;
+                width: 100%;
+                margin: 0;
+            }
+
+            .bottom{
+                flex-direction: column;
+            }
+
+            .bottom-left{
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="top">
+            <div class="top-left"></div>
+            <div class="top-middle"></div>
+            <div class="top-right"></div>
+            <div class="top-right2"></div>
+        </div>
+        <div class="middle">
+            <div class="middle-div"></div>
+        </div>
+        <div class="bottom">
+            <div class="bottom-left"></div>
+            <div class="bottom-right"></div>
+        </div>
+        <div class="bottom2">
+            <div class="bottom2-left"></div>
+            <div class="bottom2-right"></div>
+        </div>
+    </div>
+</body>
+
+</html>
