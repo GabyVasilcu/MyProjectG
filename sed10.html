@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sedinta10</title>
+    <style>
+        .bila {
+            position: absolute;
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: red;
+            border-radius: 50%;
+        }
+    </style>
+    <script>
+        var pozx = 10;
+        var pas = 1;
+        var leftLimit = 10;
+        var rightLimit = 50;
+
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {//*
+            div = document.getElementsByClassName("bila")[0];
+            div.style.left = 10 + "px";
+        }
+        setInterval(miscaBila, 10);
+
+        function miscaBila() {
+            pozx += pas;
+            if (pozx > rightLimit || pozx < leftLimit) {
+                console.log(pozx);
+                // pozx = rightLimit;
+                // pozx = pas;
+                pas *= -1; // intoarce
+            }
+            //  if(pozx < leftLimit){
+            //      console.log(pozx);
+            //      pas = 5;
+            // }
+            div.style.width = pozx + "px";
+            div.style.height = pozx + "px";
+        }
+
+
+        
+    </script>
+</head>
+
+<body>
+    <div class="bila"></div>
+</body>
+
+</html>

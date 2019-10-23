@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sedinta10.1</title>
+    <script>
+        var i = 0;
+        console.log("cod inainte de while")
+        while (i < 5) {
+            console.log(i);
+            i++;
+            //break; ACEASTA INSTRUCTIUNE MA SCOATE DIN BLOCUL DE COD CURENT
+            //console.log("sunt dupa break") - NU O SA ARATE
+            // in momentul asta revin la linia cu while (i < 5) 
+        }
+        console.log("cod dupa while")
+        
+        console.log("cod inainte de do while");
+        i = 0;
+        do {
+            console.log(i);
+            i++;
+        } while (i < 5)
+        console.log("cod dupa do while")
+
+        for (var i = 0; i < 10; i++) {
+            console.log(i);
+        }
+        console.log("cod dupa do for");
+
+        //while - se va executa codul pana se ajunge la conditie(atunci cand nu stim de cate ori vrem sa executam ceva)
+        //for - atunci cand stiu de cate ori se va executa codul
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
