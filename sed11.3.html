@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sedinta11.3</title>
+    <script>
+        var n = 1234;
+        var x = inversare(n);
+        console.log(x);
+        function inversare(n) {
+            var nInvers = 0;
+            var m = n;
+            var uc;
+            while (n > 0) {
+                uc = n % 10;
+                nInvers *= 10;
+                nInvers += uc;
+                n = parseInt(n / 10);
+            }
+            return nInvers;
+        }
+        
+
+        var a = 1234321;
+        var z = palindrom(a);
+        console.log(z);
+        function palindrom(a) {
+            var nInvers2 = 0;
+            var z = a;
+            var uc2;
+            while (a > 0) {
+                uc2 = a % 10;
+                nInvers2 *= 10;
+                nInvers2 += uc2;
+                a = parseInt(a / 10);
+            }
+            if (nInvers2 == z) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

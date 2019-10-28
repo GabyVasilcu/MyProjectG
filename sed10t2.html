@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TemaSedinta10.2</title>
+    <script>
+        console.warn("patrate perfecte")
+        var contor = 1;
+        var produs = 1;
+        var n = 1000;
+        while (produs < n) {
+            console.log(produs);
+            contor++;
+            produs = contor * contor;
+        }
+
+        console.warn("numere prime")
+        var a = Math.floor(Math.random() * 1000);
+        var nrDivizori = 0;
+        for (var i = 1; i <= a; i++) {
+            if (a % i == 0) {
+                nrDivizori++;
+            }
+        }
+        if (nrDivizori == 2) {
+            console.log("numarul este prim")
+        } else {
+            console.log("numarul nu este prim")
+        }
+
+
+
+        
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

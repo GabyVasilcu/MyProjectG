@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TemaSedinta10</title>
+    <script>
+
+        console.warn("palindrom - numar inversat identic")
+        var n = 1234321;
+        var m = n; // ne trebuie o copie a lui n
+        var uc;
+        var nInvers = 0;
+
+        while (n > 0) {
+            uc = n % 10; //obtin ultima cifra din nr.
+            nInvers *= 10; //mut cifra curenta o pozitie in stanga
+            nInvers += uc; //adaug ultima cifra in dreapta
+            n = parseInt(n / 10); //elimin ultima cifra din n
+        }
+        console.log(nInvers);
+        console.log(m);
+        if (nInvers == m) {
+            console.log("numarul este palindrom")
+        } else {
+            console.log("numarul nu este palindrom")
+        }
+
+        // ? - daca valoarea e "true", se ia prima valoare; daca e "false", se ia a 2 a
+        var mesaj = nInvers == m ? "numarul este palindrom" : "numarul nu este palindrom"
+        console.log(mesaj);
+
+        console.warn("lipire numere");
+        //solutia 1
+        var n2 = 1234;
+        var m2 = 5678;
+        var m3 = m2;
+        var numarCifre = 0;
+        while (m2 > 0) {
+            numarCifre++;
+            m2 = Math.floor(m2 / 10);
+        }
+        var numarZerouriPentruN = 10 ** numarCifre;
+        n2 *= numarZerouriPentruN;
+
+        n2 += m3;
+        console.log(n2)
+
+        //solutia 2
+        var a = 1234;
+        var b = 5678;
+        var unit = "" + a + b;
+        var numarUnit = parseInt(unit);
+        console.log(numarUnit);
+
+        //solutia3
+        var a2 = 1234;
+        var b2 = 5678;
+        var b2Copie = b2;
+        var b2Inversat = 0;
+        var uc2;
+        while (b2 > 0) {
+            uc2 = b2 % 10; 
+            b2Inversat *= 10; 
+            b2Inversat += uc2; 
+            b2 = parseInt(b2 / 10);
+        }
+        while (b2Inversat > 0) {
+            uc2 = b2Inversat % 10;
+            a2 *= 10;
+            a2 += uc2;
+            b2Inversat = parseInt(b2Inversat / 10);
+        }
+        console.log(a2)
+
+        console.warn("Exponent")
+        //sol1
+        var x = 10;
+        var xInitial = x;
+        var z = 5;
+        while (z > 1) {
+            x *= xInitial;
+            console.log("z", z);
+            z--;
+        }
+        console.log(x);
+
+        //sol2
+        var x2 = 10
+        var x2Initial = x2;
+        var z2 = 5;
+        var i = 1;
+        while (i < z2) {
+            x2 *= x2Initial;
+            console.log("z2", z2)
+            i++;
+        }
+        console.log(x2);
+
+        //sol3
+        var produs = 1;
+        var x3 = 10;
+        var z3 = 5;
+
+
+
+        var produs2 = 1;
+        for (var j = 0; j < x3; j++) {
+            produs2 *= z3
+        }
+        console.log(produs2);
+
+
+
+        console.warn("numere aleatoare")
+        var y = 100;
+        var numarGenerat;
+        for (var i = 0; i < 100; i++) {
+            numarGenerat = Math.floor(Math.random() * 10000)
+            if (numarGenerat % 2 == 0) {
+                console.log(numarGenerat);
+            }
+        }
+        
+
+        
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
