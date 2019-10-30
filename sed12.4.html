@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sedinta12.4</title>
+    <style>
+        body {
+            font-size: 0;
+        }
+
+        .patratRosu {
+            display: inline-block;
+            background: black;
+            width: 50px;
+            height: 50px;
+        }
+
+        .patratAlbastru {
+            display: inline-block;
+            background: rgb(0, 119, 255);
+            width: 50px;
+            height: 50px;
+        }
+
+        .patratVerde {
+            display: inline-block;
+            background: green;
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+        function start() {
+            var div;
+            var divParinte;
+            divParinte = document.createElement("div");
+            divParinte.style.width = "500px";
+            document.body.appendChild(divParinte);
+            for (var j = 0; j < 10; j++) {
+                for (var i = 0; i < 10; i++) {
+                    div = document.createElement("div");
+                    div.id = "div-" + j + "-" + i;
+                    div.addEventListener("mouseover", divClick); //in loc de "click", se poate cu "mouseover"
+                    if (j % 2 == 0) {
+                        if (i % 2 == 0) {
+                            div.className = "patratAlbastru";
+                        } else {
+                            div.className = "patratRosu"
+                        }
+
+                    } else {
+                        if (i % 2 == 0) {
+                            div.className = "patratRosu";
+                        } else {
+                            div.className = "patratAlbastru"
+                        }
+                    }
+                    divParinte.appendChild(div);
+                }
+            }
+            function divClick(event) {
+                console.log("click");
+                var id = this.id;
+                var idSpart = id.split("-");
+                var j = parseInt(idSpart[1]);
+                var i = parseInt(idSpart[2]);
+                console.log(i, j);
+
+                if (this.className == "patratRosu" || this.className == "patratAlbastru") {
+                    this.className = "patratVerde";
+                } else {
+
+
+
+                    if (j % 2 == 0) {
+                        if (i % 2 == 0) {
+                            this.className = "patratAlbastru";
+                        } else {
+                            this.className = "patratRosu"
+                        }
+
+                    } else {
+                        if (i % 2 == 0) {
+                            this.className = "patratRosu";
+                        } else {
+                            this.className = "patratAlbastru"
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
