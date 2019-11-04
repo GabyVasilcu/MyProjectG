@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <script>
+        var a = [1, 2, 3, 4, 5];
+        console.log(a[0]);
+        console.log(a[4]);
+
+        //pun pe pozitia 10 din vector valoarea 9
+        // a[10] = 9;
+        // console.log(a[10]);
+
+        //afisez lungimea vectorului
+        console.log("lungimea lui a", a.length);
+        console.log("...........................");
+
+        //afisez toate elementele din vector
+        for (var i = 0; i < a.length; i++) {
+            console.log(i, a[i]);
+        }
+
+        console.log(".....................");
+        //afisarea elementelor unui vector de la dreapta la stanga
+        for (var j = a.length - 1; j >= 0; j--) {
+            console.log(j, a[j]);
+        }
+
+        a.push(6) //echiv cu a[a.lenght] = 6 -- adaug un element din vector din pozitia cea mai din dreapta
+        console.log(a);
+        console.table(a);
+
+        console.log("Scot ultimul element din vector")
+        //elimin elementul din pozitia de cea mai din dreapta
+        var x = a.pop();
+        console.log("x", x);
+        console.log(a);
+
+        console.log("Scot primul element din vector")
+        var firstElement = a.shift();
+        console.log("firstElement", firstElement);
+        console.log(a);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

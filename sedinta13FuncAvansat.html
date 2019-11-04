@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sedinta13</title>
+    <script>
+        var a = 7; //contextul local
+        function foo() {  //contextul local
+            var a = 5; // se va afisa variabila din contextul local
+            console.log(a);
+        }
+        foo();
+
+        //exemplu de poluare a spatiului global
+        function foo2() {
+            b = 10;
+            console.log(b);
+        }
+        foo2();
+
+        //exemplu de evitare a poluarii spatiului global
+        function foo3() {
+            "use strict"
+            c = 10;
+            console.log(c);
+        }
+        foo3();
+
+        function foo4(a) {
+            console.log(a);
+        }
+        foo4(a)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

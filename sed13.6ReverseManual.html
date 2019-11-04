@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sedinta13.6</title>
+    <script>
+        var a = [];
+        for (var i = 0; i < 10; i++) {
+            a.push(i)
+        }
+        console.log(a);
+
+        //metoda asta nu merge, reda vectorul original
+        // for (var j = 0; j < a.length; j++) {
+        //     a.unshift(a.pop());
+        // }
+        // console.log(a);
+
+        var b = [];
+        for (var k = a.length - 1; k >= 0; k--) {
+            b.push(a[k]);
+        }
+        console.log(b);
+
+        console.log(".......................")
+        var aux;
+        for (var l = 0; l < a.length / 2; l++) {
+            aux = a[l];
+            a[l] = a[a.length - 1 - l];
+            a[a.length - 1 - l] = aux;
+        }
+        console.log(a)
+        
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
