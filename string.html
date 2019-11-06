@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+    <script>
+        var originalString = [1, 2, 3, 4, 3, 2, 1];
+
+        function palindrom(a) {
+            if (a.length < 2) {
+                return false;
+            }
+            for (var i = 0; i < a.length / 2; i++) {
+                if (a[i] != a[a.length - 1 - i]) {
+                    return false;
+                }
+                return true;
+            }
+        }
+
+        // function palindrome(string) {
+        //     var newString = string.split('').reverse().join('');
+        //     if (string === newString) {
+        //         return true;
+        //     } else {
+        //         return false;
+        //     }
+        // }
+
+        var string = originalString;
+        while (string.length > 0) {
+            var testString = '';
+            for (var j = 0; j < string.length; j++) {
+                testString += string[j];
+                if (palindrom(testString)) {
+                    console.log("this is a palindrome: " + testString);
+                }
+            }
+            string = string.slice(1);
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

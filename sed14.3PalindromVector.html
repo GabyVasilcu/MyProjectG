@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PalindromVector</title>
+    <style>
+        div {
+            display: inline-block;
+            padding: 5px;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+
+        div:hover {
+            background: #cccccc;
+        }
+
+        .green {
+            background: green;
+        }
+
+        .infoBox {
+            display: block;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", start)
+        var a = [1, 2, 3, 4, 3, 2, 1];
+
+        function palindromVector(a) {
+            if (a.length < 2) {
+                return false;
+            }
+            for (var i = 0; i < a.length / 2; i++) {
+                if (a[i] != a[a.length - 1 - i]) {
+                    return false;
+                }
+                return true;
+            }
+        }
+        console.log(palindromVector(a));
+
+        function start(e) {
+            var div;
+            for (var j = 0; j < 20; j++) {
+                div = document.createElement("div");
+                div.innerHTML = Math.floor(Math.random() * 10);
+                div.addEventListener("click", divClick)
+                document.body.appendChild(div);
+            }
+            infoBox = document.createElement("div")
+            infoBox.classList = "infoBox";
+            document.body.appendChild(infoBox)
+        }
+
+        function divClick(e) {
+            if (this.classList == "green") {
+                this.classList = "";
+            } else {
+                this.classList = "green";
+            }
+            var divs = document.getElementsByClassName("green");
+            var v = [];
+            for (var k = 0; k < divs.length; k++) {
+                v.push(divs[k].innerHTML);
+            }
+            console.log(v);
+            console.log(palindromVector(v));
+            infoBox.innerHTML = palindromVector(v) ? "ai gasit un palindrom" : "nu ai gasit un palindrom"
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

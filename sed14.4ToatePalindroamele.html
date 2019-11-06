@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+    <script>
+        var a = [1, 2, 3, 4, 3, 2, 1];
+
+        function palindromVector(a) {
+            if (a.length < 2) {
+                return false;
+            }
+            for (var i = 0; i < a.length / 2; i++) {
+                if (a[i] != a[a.length - 1 - i]) {
+                    return false;
+                }
+                return true;
+            }
+        }
+
+        function palindromIntreIndex(a, startIndex, endIndex) {
+            var v = [];
+            for (var i = startIndex; i < endIndex; i++) {
+                v.push(a[i]);
+            }
+            console.log(v);
+            return palindromVector(v)
+        }
+
+        console.log(palindromIntreIndex(a, 0, a.length));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

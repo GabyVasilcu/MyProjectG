@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>IndexOf</title>
+    <script>
+        function indexOf(a, element, fromIndex = 0) {
+            for (var i = fromIndex; i < a.length; i++) {
+                if (element == a[i]) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        var beasts = ['ant', 'bison', 'camel', 'duck', 'bison'];
+
+        console.log(beasts.indexOf('bison'));
+              
+        console.log(beasts.indexOf('bison', 2));
+
+        console.log(beasts.indexOf('giraffe'));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
