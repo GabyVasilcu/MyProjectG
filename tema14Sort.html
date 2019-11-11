@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <script>
+        var numarGenerat;
+        var v = [];
+        var i;
+        for (var i = 0; i < 1000; i++) {
+            numarGenerat = Math.floor(Math.random() * 1000);
+            v.push(numarGenerat);
+        }
+        v.sort(compareNumbers);
+        console.log(v);
+
+        function compareNumbers(a, b) {
+            return a - b;
+        }
+        for (i = v.length - 10; i < v.length; i++) {
+            console.log(v[i]);
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

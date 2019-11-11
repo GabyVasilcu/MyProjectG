@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Patrat</title>
+    <style>
+        .patrat {
+            width: 100px;
+            height: 100px;
+            background: red;
+            margin-left: 0;
+            cursor: pointer;
+            transition: margin-left 1s;
+        }
+
+    /* animatie transpusa in do ar fi: this.style.transition = "margin-left 1s"*/        
+    </style>
+    <script>
+        var div;
+
+        document.addEventListener("DOMContentLoaded", start);
+        function start() {
+            for (var i = 0; i < 5; i++) {
+                div = document.createElement("div");
+                document.body.appendChild(div);
+                div.className = "patrat";
+                div.addEventListener("click", divClick);
+            }
+        }
+
+        function divClick() {
+            if (this.style.marginLeft == "500px") {
+                this.style.marginLeft = "0";
+            } else {
+                this.style.marginLeft = "500px";
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
