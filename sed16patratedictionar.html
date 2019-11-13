@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Culori</title>
+    <style>
+        .patrat {
+            position: absolute;
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background: #cccccc;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            position: relative;
+            font-size: 0;
+            display: inline-block;
+            width: 440px;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+
+        var lineLenght = 4;
+        var squareColors = {};
+        var colors = ["DarkRed ", "DarkRed ",
+            "DarkMagenta", "DarkMagenta",
+            "DarkOrange", "DarkOrange",
+            "DarkTurquoise", "DarkTurquoise",
+            "ForestGreen ", "ForestGreen ",
+            "Gold ", "Gold ",
+            "HotPink ", "HotPink ",
+            "Peru ", "Peru "];
+        var square1;
+        var square2;
+        var container;
+        var nomOfGroups = 0;
+        var maxTries = 15;
+        var nomOfTries = 0;
+
+        function start() {
+            container = document.createElement("div");
+            container.className = "container";
+            document.body.appendChild(container);
+            createSquares();
+        }
+
+        function createSquares() {
+            var colors = ["DarkRed ", "DarkRed ",
+                "DarkMagenta", "DarkMagenta",
+                "DarkOrange", "DarkOrange",
+                "DarkTurquoise", "DarkTurquoise",
+                "ForestGreen ", "ForestGreen ",
+                "Gold ", "Gold ",
+                "HotPink ", "HotPink ",
+                "Peru ", "Peru "];
+            var patrat;
+            var id;
+            var index;
+
+            var nX = 0;
+            var nY = 0;
+            for (var i = 0; i < lineLenght; i++) {
+                for (var j = 0; j < lineLenght; j++) {
+                    patrat = document.createElement("div");
+                    patrat.className = "patrat";
+                    patrat.style.left = nX + "px";
+                    patrat.style.top = nY + "px";
+
+                    id = "p-" + i + "-" + j;
+                    patrat.id = id;
+                    index = Math.floor(Math.random() * colors.length);
+                    squareColors[id] = colors[index];
+                    colors.splice(index, 1);
+
+                    patrat.addEventListener("click", patratClick)
+                    container.appendChild(patrat);
+                    nX += 110;
+                }
+
+                nY += 110;
+                nX = 0;
+            }
+            console.log(colors);
+            console.log(squareColors);
+        }
+
+        function resetSquares() {
+            var p1 = document.getElementById(square1);
+            var p2 = document.getElementById(square2);
+            p1.style.background = "";
+            p2.style.background = "";
+            square1 = undefined;
+            square2 = undefined;
+            container.style.pointerEvents = "all"
+            // nomOfTries++;
+            // if (nomOfTries == maxTries) {
+            //     window.alert("HAHAHA! LOSER");
+
+            // }
+        }
+
+        function removeSquares() {
+            var p1 = document.getElementById(square1);
+            var p2 = document.getElementById(square2);
+            p1.remove();
+            p2.remove();
+            // p1.style.visibility = "hidden";
+            // p2.style.visibility = "hidden";
+            square1 = undefined;
+            square2 = undefined;
+            container.style.pointerEvents = "all"
+            nomOfGroups++;
+            if (nomOfGroups == 8) {
+                nomOfGroups = 0;
+                window.alert("BRAVO!!! Esti JMEKER")
+                start();
+            }
+        }
+
+        function patratClick() {
+            var id = this.id;
+            if (square1 == undefined) {
+                square1 = id;
+                this.style.background = squareColors[this.id];
+            } else {
+                if (square1 == id) {
+                    return;
+                }
+                square2 = id;
+                this.style.background = squareColors[this.id];
+                if (squareColors[square1] == squareColors[square2]) {
+                    container.style.pointerEvents = "none"
+                    setTimeout(removeSquares, 100);
+                    //trebuie sa scot culorile
+                } else {
+                    container.style.pointerEvents = "none"
+                    setTimeout(resetSquares, 100);
+                    //trebuie sa dau reset la culori
+                }
+            }
+            // console.log(this.id, squareColors[this.id]);
+            // this.style.background = squareColors[this.id];
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

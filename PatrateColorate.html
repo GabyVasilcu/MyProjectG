@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Patratele</title>
+    <style>
+        .basicDiv {
+            position: absolute;
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border: 1px solid black;
+        }
+
+        .parentDiv {
+            display: inline-block;
+            width: 100px;
+        }
+    </style>
+    <script>
+        var parentDiv;
+        var divs = [];
+        var button;
+        var a;
+
+        document.addEventListener("DOMContentLoaded", start);
+        function start() {
+            parentDiv = document.createElement("div");
+            parentDiv.className = "parentDiv";
+            document.body.appendChild(parentDiv);
+
+            button = document.createElement("button");
+            document.body.appendChild(button);
+            button.innerHTML = "coloreaza";
+
+            button.addEventListener("click", buttonClick);
+
+            var div;
+            var nX = 0;
+            var nY = 0;
+            for (var i = 0; i < 25; i++) {
+                div = document.createElement("div");
+                divs.push(div)
+                div.className = "basicDiv";
+                div.style.top = nY + "px";
+                div.style.left = nX + "px";
+                nX += 15;
+                if ((i + 1) % 5 == 0) {
+                    nY += 15;
+                    nX = 0;
+                }
+                parentDiv.appendChild(div);
+            }
+        }
+        // setInterval(buttonClick, 150) animatie
+        function buttonClick(div) {
+            if (a != undefined) {
+                divs[a].style.background = ""
+            }
+            var n = Math.floor(Math.random() * 25);
+            a = n;
+            var div = divs[n];
+            div.style.background = "green";
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
