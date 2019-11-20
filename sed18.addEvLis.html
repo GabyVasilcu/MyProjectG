@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+    <style>
+        .patrat {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            border: 1px solid black;
+        }
+
+        .patratover {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            border: 1px solid black;
+            background: red;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            var div;
+            for (var i = 0; i < 10; i++) {
+                div = document.createElement("div");
+                div.className = "patrat";
+                div.addEventListener("mouseover", divMouseOver);
+                div.addEventListener("mouseout", divMouseOut);
+                document.body.appendChild(div);
+            }
+        }
+
+        function divMouseOver() {
+            this.className = "patratover";
+        }
+
+        function divMouseOut() {
+            this.className = "patrat";
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

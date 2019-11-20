@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>MouseOverSiMouseOut</title>
+    <style>
+        /*javascript.info*/
+        .patrat1 {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+
+        .patrat2 {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border: 1px solid red;
+            top: 25px;
+            left: 25px;
+        }
+
+        /* .patrat1over {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            background: green;
+        } */
+
+        /* .patrat2over {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border: 1px solid red;
+            top: 25px;
+            left: 25px;
+            background: red;
+        } */
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            var parentDiv;
+            var div;
+            
+            parentDiv = document.createElement("div");
+            parentDiv.className = "patrat1";
+            div = document.createElement("div");
+            div.className = "patrat2";
+            parentDiv.appendChild(div);
+            document.body.appendChild(parentDiv);
+
+            parentDiv.addEventListener("mouseover", parentDivMouseOver);
+            parentDiv.addEventListener("mouseout", parentDivMouseOut);
+            div.addEventListener("mouseover", divMouseOver);
+            div.addEventListener("mouseout", divMouseOut);
+
+            parentDiv.addEventListener("click", parentDivClick);
+            div.addEventListener("click", divClick);
+        }
+
+        function parentDivClick() {
+            console.log("click", this);
+        }
+
+        function divClick() {
+            console.log("click", this);
+        }
+
+        function parentDivMouseOver() {
+            console.log("mouseover", this);
+            // this.className = "patrat1over";
+            this.style.background = "green"
+        }
+
+        function parentDivMouseOut() {
+            console.log("mouseout", this);
+            // this.className = "patrat1";
+            this.style.background = ""
+        }
+
+        function divMouseOver() {
+            console.log("mouseover", this);
+            // this.className = "patrat2over";
+            this.style.background = "red";
+        }
+
+        function divMouseOut() {
+            console.log("mouseout", this);
+            // this.className = "patrat2";
+            this.style.background = "";
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
