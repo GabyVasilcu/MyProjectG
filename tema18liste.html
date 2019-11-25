@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste</title>
+    <style>
+        .list {
+            display: inline-block;
+            width: 100px;
+            border: 1px solid black;
+            margin-right: 10px;
+            vertical-align: top;
+        }
+
+        .list-item {
+            border: 1px solid black;
+        }
+
+        .rightarrow {
+            display: inline-block;
+            padding: 5px;
+            background: green;
+            float: right;
+        }
+
+        .leftarrow {
+            display: inline-block;
+            padding: 5px;
+            background: red;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+        var lists = {};
+        var noLists = 5;
+        var noElementsInLists = 5;
+
+        function start() {
+            for (var i = 0; i < noLists; i++) {
+                var list;
+                var listItem;
+                var leftArrow;
+                var rightArrow;
+                list = document.createElement("div");
+                list.id = "list" + i;
+                list.className = "list";
+                document.body.appendChild(list);
+                for (var j = 0; j < noElementsInLists; j++) {
+                    listItem = document.createElement("div");
+                    leftArrow = document.createElement("div")
+                    rightArrow = document.createElement("div")
+                    leftArrow.innerHTML = "<-";
+                    rightArrow.innerHTML = "->"
+
+                    listItem.className = "list-item";
+                    leftArrow.className = "leftarrow";
+                    rightArrow.className = "rightarrow";
+
+                    listItem.innerHTML = i + " " + j;
+
+                    listItem.appendChild(leftArrow);
+                    listItem.appendChild(rightArrow);
+                    list.appendChild(listItem);
+
+                    listItem.addEventListener("click", listItemClick);
+                }
+            }
+        }
+
+        function listItemClick(event) {
+            var parentId = this.parentElement.id;
+            var index = parseInt(parentId.slice(4));
+            if (event.target.className == "leftarrow") {
+                if (index == 0) {
+                    index = noLists;
+                }
+                this.remove();
+                var leftList = document.getElementById("list" + (index - 1));
+                leftList.appendChild(this);
+            } else if (event.target.className == "rightarrow") {
+                if (index == noLists - 1) {
+                    index = -1;
+                }
+                console.log("rightarrow", this.parentElement);
+                this.remove();
+                var rightList = document.getElementById("list" + (index + 1));
+                rightList.appendChild(this);
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

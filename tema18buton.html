@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ButonDict</title>
+    <style>
+        button {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border-right: 2px solid black;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+
+        var dict = {}
+        //     "btn1": 0,
+        //     "btn2": 0,
+        //     "btn3": 0,
+        //     "btn4": 0,
+        //     "btn5": 0
+        // }
+
+        function start() {
+
+            for (var i = 0; i < 5; i++) {
+                var button;
+                dict["button" + i] = 0;
+
+                button = document.createElement("button");
+                button.className = "button" + i;
+                button.innerHTML = 0;
+                document.body.appendChild(button);
+                button.addEventListener("click", buttonClick);
+            }
+        }
+
+        function buttonClick() {
+            dict[this.className]++;
+            this.innerHTML = dict[this.className];
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
