@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <script>
+        window.addEventListener("load", start);
+
+        var canvas;
+        var ctx;
+
+        function start() {
+            canvas = document.getElementsByTagName("canvas")[0];
+            ctx = canvas.getContext('2d');
+            var img = document.getElementsByTagName("img")[0];
+            console.log(img);
+            ctx.drawImage(img, 0, 0);
+            // console.log(ctx.getImageData(0, 0, 466, 350));
+        }
+    </script>
+</head>
+<body>
+    <canvas width="466px" height="350px" style="border: 1px solid black"></canvas>
+    <img src="flower.jpg">
+</body>
+</html>

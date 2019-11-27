@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <style>
+        /* canvas {
+            width: 500px;
+            height: 500px;
+        } */
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+
+        var canvas;
+        var ctx;
+        var draw = false;
+
+        function start() {
+            canvas = document.getElementsByTagName("canvas")[0];
+            ctx = canvas.getContext('2d');
+
+            ctx.fillStyle = "green";
+            ctx.fillRect(0, 0, 30, 30);
+
+            ctx.beginPath();
+            ctx.moveTo(50, 50);
+            ctx.lineTo(50, 150);
+            ctx.lineTo(100, 150);
+            ctx.closePath();
+            ctx.strokeStyle = "black";
+            ctx.lineWidth = "5"
+            ctx.stroke();
+            ctx.fillStyle = "blue";
+            ctx.fill();
+            
+            canvas.addEventListener("mousemove", canvasMouseMove);
+            canvas.addEventListener("mousedown", canvasMouseDown);
+            canvas.addEventListener("mouseup", canvasMouseUp);
+            console.log(canvas);
+
+          
+        }
+
+        function canvasMouseMove(e) {
+            // draw = false;
+            if (draw) {
+                ctx.fillRect(e.clientX, e.clientY, 1, 1);
+            }
+        }
+
+        function canvasMouseDown(e) {
+            draw = true;
+        }
+
+        function canvasMouseUp() {
+            draw = false;
+        }
+    </script>
+</head>
+<body>
+    <canvas width="500px" height="500px"></canvas>
+</body>
+</html>

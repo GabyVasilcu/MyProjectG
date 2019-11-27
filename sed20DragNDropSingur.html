@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            padding: 0;
+            margin: 0;
+            background: black;
+        }
+
+        div {
+            position: absolute;
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: yellow;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+
+        var div;
+        var drag = false;
+        var dX;
+        var dY;
+        var n = 20;
+
+        function start() {
+            div = document.createElement("div");
+            // div.style.top = Math.floor(Math.random() * (window.innerHeight - 50)) + "px"; //genereaza random
+            // div.style.left = Math.floor(Math.random() * (window.innerWidth - 50)) + "px";
+            document.body.appendChild(div);
+            div.addEventListener("mousedown", divMouseDown);
+            document.body.addEventListener("mouseup", divMouseUp);
+            document.body.addEventListener("mousemove", divMouseMove);
+            document.body.addEventListener("mouseleave", divMouseLeave);
+
+        }
+
+        function divMouseDown(event) {
+            drag = true;
+            var bBox = this.getBoundingClientRect();
+            dX = event.clientX - bBox.left;
+            dY = event.clientY - bBox.top;
+
+        }
+
+        function divMouseUp() {
+            drag = false;
+        }
+
+        function divMouseMove(event) {
+            if (drag) {
+                div.style.top = event.clientY - dY + "px";
+                div.style.left = event.clientX - dX + "px";
+            }
+        }
+
+        function divMouseLeave() {
+            drag = false;
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
