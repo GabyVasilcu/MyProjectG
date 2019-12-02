@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SVGDinamic</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+
+        var rect;
+        var rectX = 10;
+        var direction = 1;
+        var ctx;
+        var div;
+
+        function start() {
+            var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            svg.setAttribute("width", 500);
+            svg.setAttribute("height", 100);
+            document.body.appendChild(svg);
+
+            rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+            rect.setAttribute("x", rectX);
+            rect.setAttribute("y", 10);
+            rect.setAttribute("width", 10);
+            rect.setAttribute("height", 10);
+            rect.setAttribute("fill", "red");
+            svg.appendChild(rect);
+
+            var canvas = document.createElement("canvas")
+            canvas.style.display = "block";
+            canvas.width = "500";
+            ctx = canvas.getContext("2d");
+            ctx.fillStyle = "red";
+            ctx.fillRect(rectX, 10, 10, 10) 
+            document.body.appendChild(canvas);
+
+            div = document.createElement("div")
+            div.style.position = "absolute";
+            div.style.width = "10px";
+            div.style.height = "10px";
+            div.style.background = "red";
+            document.body.appendChild(div);
+
+            requestAnimationFrame(animate);
+        }
+
+        function animate() {
+            rectX += 10 * direction;
+            if (rectX > 400 || rectX < 0) {
+                direction *= -1;
+            }
+
+            rect.setAttribute("x", rectX);
+
+            // if (direction == 0) {
+            //     ctx.clearRect(rectX - 10, 10, 10, 10);
+            // } else {
+            //     ctx.clearRect(rectX + 10, 10, 10, 10);
+            // }
+            ctx.fillStyle = "#ffffff1f";
+            ctx.fillRect(0, 0, 500, 100);
+            ctx.fillStyle = "red";
+            ctx.fillRect(rectX, 10, 10, 10);
+            requestAnimationFrame(animate);
+
+            div = setInterval(move, 0.5);
+            function move() {
+                var pos = 0;
+                // if(pos == 500) {
+                //     clearInterval(div);
+                // } else {
+                //     pos++;
+                //     div.style.left = pos + "px";
+                //     div.style.right = pos + "px";
+                }
+
+            }
+
+            
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
