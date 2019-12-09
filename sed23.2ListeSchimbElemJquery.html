@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ListeJquery</title>
+    <style>
+        .list {
+            display: inline-block;
+            width: 100px;
+            border: 1px solid black;
+            margin-right: 10px;
+            vertical-align: top;
+        }
+
+        .listItem {
+            border: 1px solid black;
+        }
+
+        .rightArrow {
+            display: inline-block;
+            padding: 5px;
+            background: green;
+            float: right;
+        }
+
+        .leftArrow {
+            display: inline-block;
+            padding: 5px;
+            background: red;
+        }
+    </style>
+
+    <script src="jquery-3.4.1.min.js"></script>
+
+    <script>
+        var lists = {};
+        var noLists = 5;
+        var noElementsInLists = 5;
+
+        $(function () {
+            for (var i = 0; i < noLists; i++) {
+                var list;
+                var listItem;
+                var leftArrow;
+                var rightArrow;
+                list = $("<div></div>");
+                list.attr("id", "list" + i);
+                list.addClass("list");
+                list.appendTo("body")
+                for (var j = 0; j < noElementsInLists; j++) {
+                    listItem = $("<div></div>");
+                    leftArrow = $("<div></div>");
+                    rightArrow = $("<div></div>");
+
+                    $(leftArrow).text("<-");
+                    $(rightArrow).text("->");
+
+                    listItem.addClass("listItem");
+                    leftArrow.addClass("leftArrow");
+                    rightArrow.addClass("rightArrow");
+
+                    $(listItem).text(i + " " + j);
+
+                    leftArrow.appendTo(listItem);
+                    rightArrow.appendTo(listItem);
+                    listItem.appendTo(list);
+
+                    listItem.on("click", listItemClick);
+                }
+            }
+        })
+
+        function listItemClick(event) {
+            var parentId = $(this).parent().attr("id");
+            var index = parseInt(parentId.slice(4));
+
+            if ($(event.target).hasClass("leftArrow")) {
+                if (index == 0) {
+                    index = noLists;
+                }
+                this.remove();
+                var leftList = $("#list" + (index - 1));
+                leftList.append(this);
+            } else if ($(event.target).hasClass("rightArrow")) {
+                if (index == noLists - 1) {
+                    index = -1;
+                }
+                this.remove();
+                var rightList = $("#list" + (index + 1));
+                rightList.append(this);
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Liste+si-</title>
+    <style>
+        .item {
+            width: 200px;
+            border: 1px solid black;
+            display: block;
+            text-align: right;
+        }
+
+        .minus {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 25px;
+        }
+
+        .plus {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: red;
+            text-align: center;
+            line-height: 25px;
+        }
+    </style>
+
+    <script src="jquery-3.4.1.min.js"></script>
+
+    <script>
+        var items = [];
+
+        $(function () {
+            var div = createElement();
+            items.push(div);
+            div.on("click", divClick);
+            div.appendTo("body");
+        })
+
+        function divClick(e) {
+            if ($(e.target).hasClass("item")) {
+                return;
+            } else if ($(e.target).hasClass("minus")) {
+                console.log("click minus");
+
+                if (items.length < 2) {
+                    return;
+                }
+                var currentIndex = items.indexOf(e.currentTarget);
+                items.splice(currentIndex, 1);
+                e.currentTarget.remove();
+            } else {
+                var div = $("<div></div>");
+                var currentIndex = items.indexOf(e.currentTarget);
+                items.splice(currentIndex, 0, div);
+                div.on("click", divClick);
+                $(e.currentTarget).insertAfter("afterend", div);
+            }
+        }
+
+        function createElement() {
+            var div = $("<div></div>");
+            div.addClass("item");
+            var divMinus = $("<div></div>");
+            divMinus.addClass("minus");
+            $(div).text("-")
+            var divPlus = $("<div></div>");
+            divPlus.addClass("plus");
+            $(div).text("+")
+            divMinus.appendTo(div);
+            div.appendTo($("br"));
+            divPlus.appendTo(div);
+            return div;
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

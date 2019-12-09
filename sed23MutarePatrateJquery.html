@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JqueryMutarePatrate</title>
+    <style>
+        .square {
+            width: 50px;
+            height: 50px;
+            background: green;
+            margin-left: 0;
+            cursor: pointer;
+            transition: margin-left 1s;
+        }
+    </style>
+    <script src="jquery-3.4.1.min.js"></script>
+
+    <script>
+        $(function() {
+            var div;
+            for (var i = 0; i < 5; i++) {
+                div = $("<div></div>");
+                div.addClass("square");
+                div.appendTo("body");
+                div.on("click", divClick);
+            }
+        })
+
+        function divClick() {
+            // console.log(this);
+            if ($(this).css("marginLeft") == "250px") {
+                $(this).css("marginLeft", "0");
+            } else {
+                $(this).css("marginLeft", "250px");
+            }
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
