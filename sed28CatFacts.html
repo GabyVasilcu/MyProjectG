@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+        var data;
+        var container;
+
+        function start() {
+            container = document.createElement("div");
+            document.body.appendChild(container);
+            loadImage();
+        }
+
+        function reqListener(event) {
+            data = JSON.parse(this.response);
+           container.innerHTML = "";
+           
+            var extension = data.url.substring(data.url.lastIndexOf(".") + 1);
+            if (extension.toLowerCase() == "mp4") {
+                var video = document.createElement("video");
+                video.setAttribute("width", 500);
+                video.setAttribute("height", 500);
+                video.setAttribute("controls", true);
+                var source = document.createElement("source");
+                video.appendChild(source);
+                source.setAttribute("src", data.url);
+                source.setAttribute("type", "video/mp4");
+                document.body.appendChild(video);
+            } else {
+                var img = new Image();
+                img.src = data.url;
+                img.setAttribute("width", 500);
+                img.setAttribute("height", 500);
+                document.body.appendChild(img);
+            }
+            console.log(extension);
+        }
+
+        setInterval(loadImage, 1000);
+
+        var oReq = new XMLHttpRequest();
+        oReq.addEventListener("load", reqListener);
+        oReq.open("GET", "https://random.dog/woof.json");
+        oReq.send();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

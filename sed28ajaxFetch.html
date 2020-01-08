@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+    <script src="jquery-3.4.1.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+
+        var data;
+
+        function start() {
+            console.log("DOM loaded");
+        }
+
+        fetch('sed28data.json')
+            .then((response) => {
+                return response.json();
+            })
+            .then((myJson) => {
+                displayData(myJson);
+            });
+
+        function displayData(data) {
+            for (var i = 0; i < data.squares.length; i++) {
+                var json = document.createElement("div");
+                document.body.appendChild(json);
+                json.style.left = data.squares[i].x + "px";
+                json.style.top = data.squares[i].y + "px";
+                json.style.width = data.squares[i].width + "px";
+                json.style.height = data.squares[i].height + "px";
+                json.style.background = data.squares[i].color;
+                json.style.position = "absolute";
+                json.style.display = "inline-block";
+                json.style.borderColor = data.squares[i]["border-color"];
+                json.style.borderWidth = data.squares[i]["border-width"];
+                json.style.borderStyle = data.squares[i]["border-style"];
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
