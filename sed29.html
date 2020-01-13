@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <script>
+        class Casa {
+            constructor(latime, inaltime, lungime, culoare, niveluri) {
+                this.latime = latime;
+                this.inaltime = inaltime;
+                this.lungime = lungime;
+                this.culoare = culoare;
+                this.niveluri = niveluri;
+            }
+
+            construieste() {
+                console.log("construieste");
+            }
+
+            distruge() {
+                console.log("distruge");
+            }
+
+            modifica() {
+                console.log("modifica");
+            }
+
+            calculeazaVolum() {
+                console.log("calculeazaVolum");
+                return (this.latime * this.inaltime * this.lungime);
+            }
+
+        }
+
+        var c1 = new Casa(100, 100, 100, "rosu", 3);
+        var c2 = new Casa(200, 200, 200, "albastru", 4);
+
+        c1.construieste();
+        c2.distruge();
+        c1.modifica();
+        console.log("volum c1", c1.calculeazaVolum());
+        console.log("volum c2", c2.calculeazaVolum());
+
+        debugger;
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

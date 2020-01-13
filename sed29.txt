@@ -1,0 +1,12 @@
+String ul este un obiect
+
+string: sub()
+	subtr()
+	typeOf() Astea sunt functii ale obiectului
+
+	length - proprietate, exemplu
+
+Functia constructor(Aici trebuie puse proprietatile drept parametrii)
+
+Object -> casa -> alta clasa -> alta clasa samd; Fiecare clasa mosteneste proprietatile de la clasa precedenta;
+

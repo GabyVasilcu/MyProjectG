@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+    <script src="sed27cat.js"></script>
+    <script src="sed27owner.js"></script>
+    <script>
+
+        var gabe = new Owner({
+            name: "Gabe",
+            adress: "Iasi",
+            phone: "123",
+            cats: []
+        });
+
+        var orphanCat = new Cat({
+            breed: "stray",
+            name: "pis pis",
+            color: "black",
+            age: 5,
+            hasFurr: true,
+            owner: null,
+            tricks: []
+        });
+
+        orphanCat.eat();
+        orphanCat.sleep();
+        orphanCat.doTrick();
+
+        var felix = new Cat({
+            breed: "persan",
+            name: "Felix",
+            color: "Gray",
+            age: 7,
+            hasFurr: true,
+            owner: null,
+            tricks: ["spin", "stand", "his"]
+        });
+
+        var martin = new Cat({
+            breed: "bengal",
+            name: "Martin",
+            color: "orange",
+            age: 3,
+            hasFurr: true,
+            owner: null,
+            tricks: ["spin", "stand", "his"]
+        })
+        gabe.addCat(felix);
+        gabe.addCat(martin);
+        // console.log("cats of", gabe.name, " ", gabe.cats);
+
+        console.table(gabe.cats);
+        gabe.removeCat("Martin");
+        // console.log("cats of", gabe.name, " ", gabe.cats);
+        console.table(gabe.cats);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
