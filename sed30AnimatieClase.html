@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AnimatieClase</title>
+    <script>
+        class BallAnimation {
+            constructor(ballAnimationProperties) {
+                this.startX = ballAnimationProperties.startX;
+                this.startY = ballAnimationProperties.startY;
+                this.endX = ballAnimationProperties.endX;
+                this.endY = ballAnimationProperties.endY;
+                this.step = ballAnimationProperties.step;
+                this.size = ballAnimationProperties.size;
+                this.speed = ballAnimationProperties.speed;
+                this.element = null;
+                this.currentX = this.startX;
+                this.currentY = this.startY;
+
+                if (this.startX < this.endX) {
+                    this.directionX = 1;
+                } else {
+                    this.directionX = -1;
+                }
+
+                if (this.startY < this.endY) {
+                    this.directionY = 1;
+                } else {
+                    this.directionY = -1;
+                }
+
+                this.createElement();
+            }
+
+            createElement() {
+                this.element = document.createElement("div");
+                this.element.style.width = this.size + "px";
+                this.element.style.height = this.size + "px";
+                this.element.style.position = "absolute";
+                this.element.style.display = "inline-block";
+                this.element.style.borderRadius = "50%";
+                this.element.style.background = "green";
+                this.element.style.left = this.startX + "px";
+                this.element.style.top = this.startY + "px";
+                this.animation = false;
+                this.anim = null;
+
+                document.body.appendChild(this.element);
+            }
+
+            reset() {
+                this.currentX = this.startX;
+                this.currentY = this.startY;
+                this.element.style.left = this.startX + "px";
+                this.element.style.top = this.startY + "px";
+                this.element.style.background = "purple";
+                this.stopAnimation();
+            }
+
+            startAnimation() {
+                if (this.animation == false) {
+                    this.element.style.background = "red";
+                    this.animation = true;
+                    this.anim = requestAnimationFrame(this.animate.bind(this));
+                }
+                
+            }
+
+            stopAnimation() {
+                this.animation = false;
+                cancelAnimationFrame(this.anim);
+            }
+
+            animate() {
+                this.currentX += this.step * this.directionX;
+                this.currentY += this.step * this.directionY;
+
+                if (this.directionX == 1) {
+                    if (this.currentX > this.endX) {
+                        this.currentX = this.endX;
+                    }
+                } else {
+                    if (this.currentX < this.endX) {
+                        this.currentX = this.endX
+                    }
+                }
+
+                if (this.directionY == 1) {
+                    if (this.currentY > this.endY) {
+                        this.currentY = this.endY;
+                    }
+                } else {
+                    if (this.currentY < this.endY) {
+                        this.currentY = this.endY;
+                    }
+                }
+
+
+                // if (this.currentX > this.endX) {
+                //     this.currentX = this.endX;
+                // } 
+
+                // if (this.currentY > this.endY) {
+                //     this.currentY = this.endY;
+                // }
+
+                this.element.style.left = this.currentX + "px";
+                this.element.style.top = this.currentY + "px";
+
+                if (this.currentX == this.endX && this.currentY == this.endY) {
+                    this.stopAnimation();
+                } else {
+                    this.anim = requestAnimationFrame(this.animate.bind(this));
+                }
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", start);
+
+        var balls = [];
+        var animation = false;
+        var reset;
+        function start() {
+            var ball;
+            for (var i = 0; i < 10; i++) {
+                ball = new BallAnimation({
+                    startX: Math.floor(Math.random() * 500),
+                    startY: Math.floor(Math.random() * 500),
+                    endX: Math.floor(Math.random() * 500),
+                    endY: Math.floor(Math.random() * 500),
+                    step: 1,
+                    size: 15
+                })
+                balls.push(ball);
+                ball.element.addEventListener("click", ballClick);
+            }
+            // ball.startAnimation();
+
+
+        }
+
+        function ballClick() {
+            for (var i = 0; i < 10; i++) {
+                if (this == balls[i].element) {
+                    if(balls[i].currentX == balls[i].endX && balls[i].currentY == balls[i].endY) {
+                        balls[i].reset();
+                    } else {
+                        balls[i].startAnimation();
+                    }
+                }
+            }
+            console.log(this);
+            //     if (this == ball1.element) {
+            //         ball1.startAnimation();
+            //     } else if (this == ball2.element) {
+            //         ball2.startAnimation();
+            //     }
+        }
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

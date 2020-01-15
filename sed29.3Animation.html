@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AnimatieClase</title>
+    <script>
+        class BallAnimation {
+            constructor(ballAnimationProperties) {
+                this.startX = ballAnimationProperties.startX;
+                this.startY = ballAnimationProperties.startY;
+                this.endX = ballAnimationProperties.endX;
+                this.endY = ballAnimationProperties.endY;
+                this.step = ballAnimationProperties.step;
+                this.size = ballAnimationProperties.size;
+                this.speed = ballAnimationProperties.speed;
+                this.element = null;
+                this.currentX = this.startX;
+                this.currentY = this.startY;
+
+                this.createElement();
+            }
+
+            createElement() {
+                this.element = document.createElement("div");
+                this.element.style.width = this.size + "px";
+                this.element.style.height = this.size + "px";
+                this.element.style.position = "absolute";
+                this.element.style.display = "inline-block";
+                this.element.style.borderRadius = "50%";
+                this.element.style.background = "purple";
+                this.element.style.left = this.startX + "px";
+                this.element.style.top = this.startY + "px";
+                this.anim = null;
+
+                document.body.appendChild(this.element);
+            }
+
+            reset() {
+                this.currentX = this.startX;
+                this.currentY = this.startY;
+                this.element.style.left = this.startX + "px";
+                this.element.style.top = this.startY + "px";
+                this.stopAnimation();
+            }
+
+            startAnimation() {
+                this.anim = requestAnimationFrame(this.animate.bind(this));
+            }
+
+            stopAnimation() {
+                cancelAnimationFrame(this.anim);
+            }
+
+            animate() {
+                this.currentX += this.step;
+                this.currentY += this.step;
+
+                if (this.currentX > this.endX) {
+                    this.currentX = this.endX;
+                }
+
+                if (this.currentY > this.endY) {
+                    this.currentY = this.endY;
+                }
+
+                this.element.style.left = this.currentX + "px";
+                this.element.style.top = this.currentY + "px";
+
+                if (this.currentX == this.endX && this.currentY == this.endY) {
+                    this.stopAnimation();
+                } else {
+                    this.anim = requestAnimationFrame(this.animate.bind(this));
+                }
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", start);
+
+        var button;
+        var ball;
+        var animation = false;
+        var reset;
+        function start() {
+            ball = new BallAnimation({
+                startX: 20,
+                startY: 20,
+                endX: 600,
+                endY: 20,
+                step: 5,
+                size: 15
+            })
+            // ball.startAnimation();
+            button = document.createElement("button");
+            button.style.width = "20px";
+            button.style.height = "20px";
+            button.style.position = "absolute";
+            button.style.top = "50px";
+            button.style.background = "green";
+            reset = document.createElement("button");
+            reset.style.width = "20px";
+            reset.style.height = "20px";
+            reset.style.position = "absolute";
+            reset.style.top = "100px";
+            reset.style.background = "red";
+            document.body.appendChild(button);
+            document.body.append(reset);
+
+            button.addEventListener("click", buttonClick);
+            reset.addEventListener("click", resetClick);
+        }
+
+        function buttonClick() {
+            if (animation == false) {
+                animation = true;
+                ball.startAnimation();
+            } else {
+                animation = false;
+                ball.stopAnimation();
+            }
+        }
+
+        function resetClick() {
+                ball.reset();
+        }
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
