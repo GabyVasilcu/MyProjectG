@@ -1,0 +1,10 @@
+fiinta: alive = true/false, mammalian = true/false, age, region, gender, name
+	
+	isOld = true/false; isEating = true/flase, isBreathing
+
+om: adresa; phone; mail; marriage
+
+    isVegan = true/false;
+
+
+javascriptinfo: prototypes si classe, capitol 8 si 9

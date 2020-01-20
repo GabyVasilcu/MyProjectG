@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mosteniri</title>
+    <script src="sed31geometricShape.js"></script>
+    <script src="sed31circle.js"></script>
+    <script src="sed31patrulater.js"></script>
+    <script src="sed31dreptunghi.js"></script>
+    <script src="sed31patrat.js"></script>
+    <script src="sed31triunghi.js"></script>
+    <script src="sed31trapez.js"></script>
+    <script>
+        var circle = new Circle(50, 50, 100);
+        circle.area = function() {
+            console.log("o functie mai sus");
+        }
+        var circle2 = new Circle(60, 60, 150);
+        console.log(circle.perimeter());
+        console.log(circle.area());
+
+        var d = new Dreptunghi(0, 0, 50, 50);
+        console.log(d.area(), d.perimeter(), d.name);
+
+        var p = new Patrat(40, 40, 30);
+        console.log(p.area(), p.perimeter(), p.name);
+
+        var t = new Triunghi(60, 30, 40, 50);
+        console.log(t.area(), t.perimeter(), t.name);
+
+        var tz = new Trapez(0, 0, 20, 50, 30, 35, 25);
+        console.log(tz.area(), tz.perimeter(), tz.name);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
