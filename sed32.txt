@@ -1,0 +1,9 @@
+clasa e pt a face o instantiere
+
+
+programare oop(object-oriented programming): mostenire, overloading, incapsulare
+
+SUPER face apelare catre constructorul clasei parinte
+
+
+get-eri si set-eri
