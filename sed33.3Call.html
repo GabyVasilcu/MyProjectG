@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <script>
+        var a = {
+            x: 5,
+            y: 10,
+            suma: function() {
+                console.log(this.x + this.y);
+            }
+        }
+
+        var b = {
+            x: 4,
+            y: 9
+        }
+
+        a.suma();
+
+        var f = a.suma;
+        f();
+
+        a.suma.call(b); //call ma lasa ca THIS-ul sa fie cine vreau
+                        //In cazul asta, ar fi b
+                        //ar fi echiv. cu this.x + this.y in var b
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

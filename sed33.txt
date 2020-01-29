@@ -1,0 +1,31 @@
+shadowing - atunci cand gasim o proprietate in 2 clase
+
+
+Orice functie poate fi un constructor. NEW poate chema orice functie ca un constructor
+Atunci cand o functie e chemata cu NEW, acea functie va putea returna doar un obiect. Nu va putea returna valori
+NEW creeaza un obiect
+
+
+Callback e o functie folosita ca parametru pe care o chem mai tarziu
+
+
+THIS-ul se depinde de cum apelez functia: 1. f -> THIS o sa fie window
+					  2. a.f -> THIS o sa fie 'a'(cine e inaintea punctului) - in cadrul unui dictionar
+					  3. NEw - se face un obiect(this) gol;
+					  	this-ul reprezinta obiectul creat in urma apelarii NEW
+					  4. f.call(a, 5, 7)
+Cand fac bind de this, THIS e clasa. Fara bind, THIS va fi window(primul exemplu)
+La addEventListener, THIS e elementul pe care se pune listener-ul
+
+
+
+
+
+
+
+O expresie intoarce ultima valoare
+
+var il pune in window, let nu il pune in window
+
+Kyle Simpson
+Javascript understanding the weird parts
