@@ -1,0 +1,22 @@
+	Crearea claselor se face in afara functiei
+
+	Object.assing -- aici pun metodele
+
+	Setterii si getterii functioneaza doar in crearea claselor; in afara claselor, va trebui folositi ca functii  [sp.setX()]
+
+	Fiecare obiect are un prototip asociat
+
+	Polimorfismul se refera la faptul ca putem avea 2 functii cu aceeasi denumire, dar cu parametri diferiti. Aceste functii 
+vor face lucruri diferite
+
+
+	O functie fiind bindata, nu mai poate fi rebindata
+
+
+	Arrow functions - mdn/jsinfo
+
+
+
+	Pot folosi console.log(this) pt a vedea ce fel de this am
+
+	Map primeste o functie care se va apela pentru fiecare element in parte. Map poate fi folosit doar in cazul in care am array

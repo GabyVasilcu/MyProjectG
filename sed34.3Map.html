@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Map</title>
+    <script>
+        var a = [1, 2, 3, 4, 5];
+        var b = a.map(k => k * k);
+        console.log(b);
+
+        var c = a.map(function (x) {
+            return x * x;
+        });
+        console.log(c);
+
+
+        var m = 2;
+        var d = {
+            m: 10
+        }
+
+        var newArray = a.map((x, index, array, d) => x * this.m);
+        var newArrays = a.map(function(x, index, array, d) {return x * this.m});
+        console.log(newArray);
+        console.log(newArrays);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

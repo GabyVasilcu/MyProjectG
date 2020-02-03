@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <script>
+        var a = 15;
+        var a = {
+            x: 5,
+            f: function(a, b) {
+                console.log(arguments, arguments.length);
+                // console.log(array.prototype.join.call(arguments, " "));
+                console.log("x", this.x);
+                console.log("a + b", a + b);
+            }
+        }
+
+        var b = {
+            x: 10
+        }
+
+        var f = a.f.bind(b, 10); // echiv cu a.f.call(b)
+        var f2 = a.f;
+
+        var f3 = f.bind({x : 90}); //va arata 10, nu 90 pt ca o functie deja bindata, nu mai poate fi bindata din nou
+
+        a.f(1, 1); // 5
+        f(5); // 10
+        f2(30, 40); // 15 (ma duc in window)
+
+        f3(0);
+
+
+        var c =  [0, 30, 10, 40, 15];
+        console.log(Math.max.apply(null, c)); //apply se asteapta sa gaseasca un vector
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
