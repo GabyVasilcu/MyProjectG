@@ -1,0 +1,6 @@
+Bubbling si capturing - doar in cazul evenimentelor(addEventListener)
+
+
+
+Target - elementul care declanseaza evenimentul
+CurrentTarget - elementul pe care e pus evenimentul

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        body {
+            background: black;
+            overflow: hidden;
+        }
+
+        .snowflake1 { 
+            display: inline-block;
+            border-radius: 50%;
+            box-shadow: 0px 0px 2px 2px rgba(255, 255, 255, 1);
+            background: white;
+        }
+    </style>
+    <script src="sed35snowEffect.js"></script>
+    <script src="sed35SnowFlake.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+
+        var snowflake;
+        var fulgi = [];
+
+        function start() {
+            for(var i = 0; i < 100; i++) {
+                size = Math.floor(Math.random() * 10) + 1;
+                snowflake = new SnowFlake({
+                x: window.innerWidth,
+                y: window.innerHeight,
+                width: size,
+                height: size,
+                class: "snowflake1"
+            });
+            fulgi.push(snowflake);
+            
+            document.body.appendChild(snowflake.element);
+            };  
+
+            window.requestAnimationFrame(animate);
+        }
+
+        function animate() {
+            for(var i = 0; i < 100; i++) {
+               fulgi[i].animate(); 
+            }
+            requestAnimationFrame(animate);
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
