@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html">
+
+    <head>
+        <title>Document</title>
+        <style>
+            .bara {
+                position: absolute;
+                display: inline-block;
+                width: 100%;
+                height: 50px;
+                background: red;
+                top: 0;
+                animation: slide 1s;
+            }
+
+            @keyframes slide {
+                from {top: 0; left: -100%} 
+                to {top: 0; left: 0} 
+            }
+
+            .buton1 {
+                position: absolute;
+                display: inline-block;
+                width: 50px;
+                height: 50px;
+                background: green;
+                top: 0;
+                left: 80%;
+                animation: buton1 3s;
+            }
+
+            .buton2 {
+                position: absolute;
+                display: inline-block;
+                width: 50px;
+                height: 50px;
+                background: green;
+                top: 0;
+                left: 50%;
+                animation: buton2 4s;
+            }
+
+            .buton3 {
+                position: absolute;
+                display: inline-block;
+                width: 50px;
+                height: 50px;
+                background: green;
+                top: 0;
+                left: 20%;
+                animation:buton3 5s;
+            }
+
+            @keyframes buton1 {
+                from{top: 0; left: -100%}
+                to{top: 0; left: 80%}
+            }
+
+            @keyframes buton2 {
+                from{top: 0; left: -100%}
+                to{top: 0; left: 50%}
+            }
+
+            @keyframes buton3 {
+                from{top: 0; left: -100%}
+                to{top: 0; left: 20%}
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="bara"></div>
+        <button class="buton1"></button>
+        <button class="buton2"></button>
+        <button class="buton3"></button>
+    </body>
+
+    </html>

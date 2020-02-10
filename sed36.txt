@@ -1,0 +1,28 @@
+a.prototype.call(this) - pt a chema o proprietate caruia i se face shadowing
+
+
+Chemarea unei funcii:
+1. apel simplu () - this ne duce in window
+		 * in strict mode, this va fi undefined
+
+2. a.f() - this va fi 'a'
+
+3. cand chem o functie cu NEW - this va fi un obiect nou, obiectul creat
+
+4. bind - this va fi cel pasat in bindare; f.bind(a) - this va fi a
+
+5. la addEventListener - this va fi elementul pe care punem evenimentul
+
+
+
+
+
+
+== - face niste conversii de tip. Incearca sa dea valoarea variabilei pentru a compara mai tarziu
+=== - nu face conversii de tip si compara tipul de date(boolean, string, number, undefined, null)
+
+
+Functia constructor returneaza mereu un obiect
+
+Map si filter se aplica pe fiecare element al unui vector. Acestea vor intoarce tot un vector
+Filter va intoarce un vector cu elementele care indeplinesc o anumita conditie data de noi.
