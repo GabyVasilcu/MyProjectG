@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+    <script>
+
+        var number = 174;
+        var r;
+        var c;
+        var v = [];
+        var baza = 16;
+        var d = {
+            10: "a",
+            11: "b",
+            12: "c",
+            13: "d",
+            14: "e",
+            15: "f"
+        };
+
+        do {
+            c = parseInt(number / baza);
+            r = number % baza;
+            number = parseInt(number / baza);
+            v.push(r);
+        } while (c > 0)
+
+        v = v.map((item) => {  //item va fi fiecare element din vector
+            if (item > 9) {
+                return d[item];
+            }
+            return item;
+        })
+        console.log(v.reverse().join(""));
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

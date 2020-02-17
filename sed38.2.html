@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+    <script>
+        var n = 1001;
+        let uc;
+        var s = 0;
+        let p = 0;
+
+        while (n > 0) {
+            uc = n % 10;
+            s += uc * 2 ** p;
+            n = parseInt(n / 10);
+            p++;
+        }
+        console.log(s);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

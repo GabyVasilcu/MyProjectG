@@ -1,0 +1,7 @@
+setInterval - cheama o functie la intervalul dat, la infinit
+setTimeout - cheama o functie cu un delay
+
+
+
+
+
