@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+    <script>
+        function reqListener(event) {
+            console.log(this.response);
+        }
+
+        var oReq = new XMLHttpRequest();
+        oReq.requestType = "json";
+        oReq.addEventListener("load", reqListener);
+
+        oReq.open("POST", "http://dummy.restapiexample.com/api/v1/create");
+        oReq.send(JSON.stringify( {
+            "name": "test",
+            "salary": "123",
+            "age": "23",
+            "lastname": "ionel"
+        }));
+
+        // http://dummy.restapiexample.com/api/v1/employees
+        //http://dummy.restapiexample.com/
+        //https://github.com/leonardomso/33-js-concepts
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
