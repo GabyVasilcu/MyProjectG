@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+    <script>
+        count(1, 10);
+        function count(index, stop) {
+            console.log("count1", index);
+            if (index < stop) {
+                count(index + 1, stop);
+            }
+            //daca pun console.log dupa functie, numerele sunt afisate in ordine inversa
+        }
+
+        var index2 = 0;
+        var stop2 = 10;
+        requestAnimationFrame(count2);
+        function count2() {
+            index2++;
+            if (index2 < stop2) {
+                requestAnimationFrame(count2);
+            }
+            console.log(index2);
+        }
+    </script>
+</head>
+
+<body>
+<!-- github.com/padinag -->
+</body>
+
+</html>

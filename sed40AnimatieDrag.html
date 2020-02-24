@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            padding: 0;
+            margin: 0;
+        }
+
+        .ball {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: green;
+            border-radius: 50%;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+
+        var contor = 0;
+        var startDraging = false;
+        var coordinates = [];
+        var windowWidth;
+        var ball;
+        var frame;
+        var frame2;
+        var mouseX;
+        var mouseY;
+        var direction = 1;
+
+        function start() {
+            ball = document.createElement("div");
+            ball.className = "ball";
+            document.body.appendChild(ball);
+            ball.addEventListener("mousedown", startDrag);
+            document.body.addEventListener("mousemove", drag);
+            document.body.addEventListener("mouseup", stopDrag);
+            document.body.addEventListener("mouseleave", leaveBall)
+        }
+
+        function startDrag() {
+            startDraging = true;
+            coordinates = [];
+            contor = 0;
+            direction = 1;
+            frame2 = requestAnimationFrame(pushCoordinates);
+        }
+
+        function pushCoordinates(event) {
+            if (startDraging) {
+
+                ball.style.left = mouseX + "px";
+                ball.style.top = mouseY + "px";
+                console.log("mousemove");
+
+                coordinates.push({
+                    x: mouseX,
+                    y: mouseY
+                });
+            }
+
+            console.log("requestAnimationFrame");
+            frame2 = requestAnimationFrame(pushCoordinates);
+        }
+
+        function drag(event) {
+            mouseX = event.clientX;
+            mouseY = event.clientY;
+        }
+
+        function leaveBall() {
+            startDraging = false;
+        }
+
+        function stopDrag() {
+            if (startDraging == true) {
+                startDraging = false;
+                console.log(coordinates);
+                cancelAnimationFrame(frame2);
+                frame = requestAnimationFrame(remakePath);
+            }
+        }
+
+        function remakePath() {
+            ball.style.left = coordinates[contor].x + "px";
+            ball.style.top = coordinates[contor].y + "px";
+
+            contor += direction;
+            if (contor = coordinates.length - 1) {
+                direection = -1;
+            }
+            if (contor == 0) {
+                return;
+            }
+            requestAnimationFrame(remakePath);
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
